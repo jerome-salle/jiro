@@ -57,15 +57,15 @@
       </div>
     </section>
 
-    <section class="horizontal-scroll-section section-dots" data-color="#ffdfc4">
-      <h2 class="h3 text-center fw-bold text-uppercase">Projects</h2>
+    <section class="horizontal-scroll-section section-dots-white" data-color="#383534">
+      <h2 class="h3 text-center fw-bold text-uppercase text-white js-fade-up">Projects</h2>
       <div class="horizontal-wrapper">
         <div class="story-spacer"></div>
-        <a href="https://the-creator-c0c27b.webflow.io/" target="_blank" class="collections-card" data-grid="32" data-mouse=".6" data-strength=".8" data-relaxation=".9" data-aspectRatio="0.5">
-          <img class="d-none" src="images/project-1.webp" alt="">
+        <a href="https://one-task-at-a-time.webflow.io/" target="_blank" class="collections-card" data-grid="42" data-mouse=".6" data-strength=".6" data-relaxation=".9" data-aspectRatio="1">
+          <img class="d-none" src="https://jerome-salle.github.io/jiro/images/project-2.webp" alt="one task at a time project">
         </a>
-        <a href="https://one-task-at-a-time.webflow.io/" target="_blank" class="collections-card" data-grid="32" data-mouse=".6" data-strength=".8" data-relaxation=".9" data-aspectRatio="0.5">
-          <img class="d-none" src="images/project-2.webp" alt="">
+        <a href="https://the-creator-c0c27b.webflow.io/" target="_blank" class="collections-card" data-grid="42" data-mouse=".6" data-strength=".6" data-relaxation=".9" data-aspectRatio="1">
+          <img class="d-none" src="https://jerome-salle.github.io/jiro/images/project-1.webp" alt="the creator project">
         </a>
         <!-- <a href="#" target="_blank" class="collections-card" data-grid="32" data-mouse=".6" data-strength=".8" data-relaxation=".9" data-aspectRatio="0.5">
           <img class="d-none" src="https://jerome-salle.github.io/distortion-hover/sun-god-2.webp" alt="">
@@ -73,8 +73,8 @@
         <a href="#" target="_blank" class="collections-card" data-grid="32" data-mouse=".6" data-strength=".8" data-relaxation=".9" data-aspectRatio="0.5">
           <img class="d-none" src="https://jerome-salle.github.io/distortion-hover/sun-god-2.webp" alt="">
         </a> -->
-        <a href="https://jerome-salle.github.io/distortion-hover/" target="_blank" class="collections-card" data-grid="32" data-mouse=".6" data-strength=".8" data-relaxation=".9" data-aspectRatio="0.5">
-          <img class="d-none" src="images/project-3.webp" alt="">
+        <a href="https://jerome-salle.github.io/distortion-hover/" target="_blank" class="collections-card" data-grid="42" data-mouse=".6" data-strength=".6" data-relaxation=".9" data-aspectRatio="1">
+          <img class="d-none" src="https://jerome-salle.github.io/jiro/images/project-3.webp" alt="distortion project">
         </a>
         <div class="story-spacer last"></div>
       </div>
@@ -149,15 +149,15 @@
       <div class="row gx-0 justify-content-center align-items-center h-100 pos-relative z-1">
         <div class="col pos-relative">
           <div class="arm-wrapper">
-            <img class="left-arm" src="https://jerome-salle.github.io/distortion-hover/sun-god-2.webp" alt="">
+            <img class="left-arm" src="https://jerome-salle.github.io/jiro/images/left-arm.webp" alt="">
           </div>
         </div>
         <div class="col-auto transition-base">
-          <a class="btn-contact" href="#">LET’S CONNECT</a>
+          <a class="btn-contact" href="mailto:sallejerome6@gmail.com">LET’S CONNECT</a>
         </div>
         <div class="col pos-relative">
           <div class="arm-wrapper">
-            <img class="gods-arm" src="https://jerome-salle.github.io/distortion-hover/sun-god-2.webp" alt="">
+            <img class="gods-arm" src="https://jerome-salle.github.io/jiro/images/gods-arm.webp" alt="">
           </div>
         </div>
       </div>
@@ -610,10 +610,17 @@
 
     hoverListener() {
       const button = document.querySelector('.btn-contact');
-      if (!button) return;
+      const canvas = this.img.closest('.arm-wrapper')?.querySelector('canvas');
+
+      if (!button || !canvas) return;
 
       button.addEventListener('mouseenter', () => {
+        canvas.style.filter = 'none'; // Remove grayscale
         this.triggerDistortion();
+      });
+
+      button.addEventListener('mouseleave', () => {
+        canvas.style.filter = 'grayscale(100%)'; // Reapply grayscale
       });
     }
 
@@ -628,7 +635,7 @@
       const centerY = this.size / 2;
       const maxDist = this.size / 2;
       const data = this.texture.image.data;
-      const totalFrames = 20; 
+      const totalFrames = 90;
       let frame = 0;
 
       const easeInOutCubic = (t) => {
@@ -641,6 +648,11 @@
         const t = frame / totalFrames;
         const eased = easeInOutCubic(t);
 
+        const bandWidth = 10;
+        const bandX = isLeftArm
+          ? Math.floor(this.size * (1 - eased)) 
+          : Math.floor(this.size * eased);
+
         for (let y = 0; y < this.size; y++) {
           for (let x = 0; x < this.size; x++) {
             const index = 3 * (x + y * this.size);
@@ -648,19 +660,19 @@
             const dy = y - centerY;
             const dist = Math.sqrt(dx * dx + dy * dy);
 
-            const power = (1 - dist / maxDist) * eased;
+            if (x >= bandX && x <= bandX + bandWidth) {
+              const noise = (Math.random() - 0.5) * 5 * (1 - dist / maxDist);
+              const power = 0.01;
 
-            // Optional: Add glitch noise for robotic feel
-            const noise = (Math.random() - 0.5) * 5 * (1 - dist / maxDist);
+              if (isLeftArm) {
+                data[index] -= power * 15 + noise;
+                data[index + 1] += (dy / maxDist) * power * 10 + noise;
+              }
 
-            if (isLeftArm) {
-              data[index] -= (power * 15) + noise;
-              data[index + 1] += ((dy / maxDist) * power * 10) + noise;
-            }
-
-            if (isGodsArm) {
-              data[index] += (power * 15) + noise;
-              data[index + 1] += ((dy / maxDist) * power * 10) + noise;
+              if (isGodsArm) {
+                data[index] += power * 15 + noise;
+                data[index + 1] += (dy / maxDist) * power * 10 + noise;
+              }
             }
           }
         }
@@ -673,9 +685,9 @@
         }
       };
 
+
       animateDistortion();
     }
-
 
     updateTexture() {
       let data = this.texture.image.data;
