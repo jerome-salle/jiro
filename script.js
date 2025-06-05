@@ -69,17 +69,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // bg change colors
-  document.querySelectorAll("section").forEach(sectionColor => {
-    let color = sectionColor.dataset.color;
+  // gsap.set("body", { backgroundColor: "#01010e" });
+  // document.querySelectorAll("section").forEach(sectionColor => {
+  //   let color = sectionColor.dataset.color;
 
-    ScrollTrigger.create({
-      trigger: sectionColor,
-      start: "top center",
-      end: "bottom center",
-      onEnter: () => gsap.to("body", { backgroundColor: color, duration: 0.5 }),
-      onEnterBack: () => gsap.to("body", { backgroundColor: color, duration: 0.5 }),
-    });
-  });
+  //   ScrollTrigger.create({
+  //     trigger: sectionColor,
+  //     start: "top center",
+  //     end: "bottom center",
+  //     onEnter: () => gsap.to("body", { backgroundColor: color, duration: 0.5 }),
+  //     onEnterBack: () => gsap.to("body", { backgroundColor: color, duration: 0.5 }),
+  //   });
+  // });
 
   const btnContact = document.querySelector('.btn-contact');
   const leftArm = document.querySelector('.left-arm');
@@ -153,7 +154,7 @@ function setupHorizontalScroll() {
       end: () => `+=${totalScroll}`,
       pin: true,
       scrub: true,
-      markers: true, 
+      //markers: true, 
       anticipatePin: 1,
       onUpdate: () => {
         const centerX = window.innerWidth / 2;
@@ -251,7 +252,7 @@ function initRevealTextAnimation() {
         timeline.to(animEl, {
           clipPath: "inset(0 0% 0 0%)",
           opacity: 1,
-          duration: 0.5,
+          duration: 0.8,
         }, i * 0.2);
       } else {
         timeline.to(animEl, {
@@ -280,4 +281,51 @@ window.addEventListener("resize", () => {
     initRevealTextAnimation();
     ScrollTrigger.refresh();
   }, 200);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const sideMenu = document.querySelector('.menu');
+  let menuOpen = false;
+
+  const animation = lottie.loadAnimation({
+    container: hamburgerIcon,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'https://cdn.prod.website-files.com/680883bf197fced5bb5d69db/68142aea2632afc8c8326e67_6bbc5df70054f4c271265a76821d91c0_hamburger.json'
+  });
+
+  animation.setSpeed(3);
+
+  function closeMenu() {
+    animation.setDirection(-1);
+    animation.play();
+    sideMenu.style.opacity = "0";
+    sideMenu.style.visibility = "hidden"
+    menuOpen = false;
+  }
+
+  hamburgerIcon.addEventListener('click', function (event) {
+    event.stopPropagation(); // Prevent click from bubbling to document
+    if (menuOpen) {
+      closeMenu();
+    } else {
+      animation.setDirection(1);
+      animation.play();
+      sideMenu.style.opacity = "1";
+      sideMenu.style.visibility = "visible"
+      menuOpen = true;
+    }
+  });
+
+  // Close menu if clicked outside
+  document.addEventListener('click', function (event) {
+    const isClickInsideMenu = sideMenu.contains(event.target);
+    const isClickOnIcon = hamburgerIcon.contains(event.target);
+
+    if (menuOpen && !isClickInsideMenu && !isClickOnIcon) {
+      closeMenu();
+    }
+  });
 });
