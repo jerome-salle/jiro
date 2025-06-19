@@ -12,11 +12,38 @@
   
 </head>
 <body>
-  <a href="#top" id="topButton">
-    <img src="images/arrow-up.webp" alt="arrow up icon">
-  </a>
+  <div id="preloader">
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+    <div id="percent">0%</div>
+  </div>
 
-  <main class="pos-relative">
+  <main id="main-content" class="pos-relative">
+    <div class="gradient-bg">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix"
+              values="1 0 0 0 0  
+                      0 1 0 0 0  
+                      0 0 1 0 0  
+                      0 0 0 18 -8"
+              result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div class="gradients-container">
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g4"></div>
+        <div class="g5"></div>
+        <div class="interactive"></div>
+      </div>
+    </div>
     <header>
       <div class="container pos-relative">
         <div class="row justify-content-between align-items-center">
@@ -41,7 +68,6 @@
       </div>
     </header>
     <section class="section-hero" id="#top" data-color="#fff">
-      <img class="hero-bg" src="images/hero-bg.webp" alt="hero-bg">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -54,7 +80,6 @@
     </section>
 
     <section class="pos-relative pb-10" id="about">
-      <img class="hero-bg" src="images/hero-bg.webp" alt="hero-bg">
       <div class="container h-100 reveal-text">
         <div class="row justify-content-center text-center align-items-center h-100">
           <div class="col">
@@ -68,7 +93,7 @@
       </div>
     </section>
 
-    <section class="horizontal-scroll-section section-dots bg-primary-black" id="projects">
+    <section class="horizontal-scroll-section" id="projects">
       <h2 class="h3 text-center fw-bold text-uppercase text-white js-fade-up">Projects</h2>
       <div class="horizontal-wrapper">
         <div class="story-spacer"></div>
@@ -85,7 +110,7 @@
       </div>
     </section> 
 
-    <section class="section-dots py-32" data-color="#01010e" id="stack">
+    <section class="py-32" data-color="#01010e" id="stack">
       <div class="container h-100">
         <div class="row mb-5">
           <div class="col-auto">
@@ -106,7 +131,7 @@
       </div>
     </section>
 
-    <section class="py-20 section-dots" data-color="#01010e">
+    <section class="py-20" data-color="#01010e">
       <div class="container">
         <div class="row mb-16">
           <div class="col-auto">
@@ -151,7 +176,6 @@
     </section>
 
     <section class="contact-section" data-color="#01010e">
-      <img class="hero-bg" src="images/hero-bg.webp" alt="hero-bg">
       <div class="row gx-0 justify-content-center align-items-center h-100 pos-relative z-1">
         <div class="col pos-relative">
           <div class="arm-wrapper">
@@ -168,32 +192,6 @@
         </div>
       </div>
     </section>
-
-    <!-- <footer class="footer font-apercu">
-      <div class="container">
-        <div class="footer__bottom">
-          <div class="row justify-content-center">
-            <div class="col">
-              <p class="text-white">
-                <span class="js-current-year"></span>
-                masterpiece by Jiro
-              </p>
-            </div>
-            <div class="col-auto">  
-              <div class="row gy-2">
-                <div class="col">
-                  <a class="social-icons" href="https://www.linkedin.com/in/jerome-salle-88aa05258" target="_blank">
-                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4.70553 0.722656C2.12033 0.722656 0.00448608 2.83845 0.00448608 5.4237V20.0119C0.00448608 22.5971 2.12028 24.7122 4.70553 24.7122H19.2937C21.879 24.7122 23.994 22.5971 23.994 20.0119V5.4237C23.994 2.8385 21.879 0.722656 19.2937 0.722656H4.70553ZM5.88792 4.68141C7.12747 4.68141 7.89098 5.49515 7.91455 6.56481C7.91455 7.61085 7.12742 8.44746 5.86394 8.44746H5.84069C4.62473 8.44746 3.8388 7.6109 3.8388 6.56481C3.8388 5.49518 4.64851 4.68141 5.88789 4.68141H5.88792ZM16.5698 9.68085C18.9537 9.68085 20.7408 11.239 20.7408 14.5873V20.8381H17.1179V15.0064C17.1179 13.541 16.5936 12.5412 15.2825 12.5412C14.2816 12.5412 13.685 13.215 13.4231 13.866C13.3274 14.0989 13.3039 14.4242 13.3039 14.75V20.8381H9.681C9.681 20.8381 9.72854 10.9594 9.681 9.9365H13.3046V11.4803C13.7861 10.7375 14.6472 9.68082 16.5698 9.68082V9.68085ZM4.05249 9.93729H7.67537V20.8381H4.05249V9.93729Z" fill="#fff"/>
-                    </svg>                    
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer> -->
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -205,245 +203,485 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
   <script src="script.js"></script>
+  <script type="module">
+      var vertex = `
+      varying vec2 vUv;
+      varying vec3 vPosition;
+      uniform vec2 pixels;
+      float PI = 3.141592653589793238;
+      void main() {
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+      }`;
 
+      var fragment = `
+      uniform float progress;
+      uniform sampler2D uDataTexture;
+      uniform sampler2D uTexture;
+
+
+      uniform vec4 resolution;
+      varying vec2 vUv;
+      varying vec3 vPosition;
+      float PI = 3.141592653589793238;
+      void main()	{
+        vec2 newUV = (vUv - vec2(0.5)) * resolution.zw + vec2(0.5);
+        vec4 color = texture2D(uTexture,newUV);
+        vec4 offset = texture2D(uDataTexture,vUv);
+        gl_FragColor = vec4(vUv,0.0,1.);
+        gl_FragColor = vec4(offset.r,0.,0.,1.);
+        gl_FragColor = color;
+        gl_FragColor = texture2D(uTexture,newUV - 0.01*offset.rg);
+        // gl_FragColor = offset;
+
+      }`;
+
+      function clamp(number, min, max) {
+        return Math.max(min, Math.min(number, max));
+      }
+
+      class Sketch {
+        constructor(options) {
+          this.scene = new THREE.Scene();
+
+          this.container = options.dom;
+          this.img = this.container.querySelector("img");
+          this.width = this.container.offsetWidth;
+          this.height = this.container.offsetHeight;
+          this.renderer = new THREE.WebGLRenderer();
+          this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          this.renderer.setSize(this.width, this.height);
+          this.renderer.setClearColor(0xeeeeee, 1);
+          this.renderer.physicallyCorrectLights = true;
+          this.renderer.outputEncoding = THREE.sRGBEncoding;
+
+          this.container.appendChild(this.renderer.domElement);
+
+          this.camera = new THREE.PerspectiveCamera(
+            70,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            100
+          );
+
+          var frustumSize = 1;
+          var aspect = window.innerWidth / window.innerHeight;
+          this.camera = new THREE.OrthographicCamera(
+            frustumSize / -2,
+            frustumSize / 2,
+            frustumSize / 2,
+            frustumSize / -2,
+            -1000,
+            1000
+          );
+          this.camera.position.set(0, 0, 2);
+
+          this.time = 0;
+
+          this.mouse = {
+            x: 0,
+            y: 0,
+            prevX: 0,
+            prevY: 0,
+            vX: 0,
+            vY: 0
+          };
+
+          this.isPlaying = true;
+          this.settings();
+          this.addObjects();
+          this.resize();
+          this.render();
+          this.setupResize();
+
+          this.mouseEvents();
+        }
+
+        getValue(val) {
+          return parseFloat(this.container.getAttribute("data-" + val));
+        }
+
+        mouseEvents() {
+          this.container.addEventListener("mousemove", (e) => {
+            const rect = this.container.getBoundingClientRect();
+            this.mouse.x = (e.clientX - rect.left) / rect.width;
+            this.mouse.y = (e.clientY - rect.top) / rect.height;
+
+            this.mouse.vX = this.mouse.x - this.mouse.prevX;
+            this.mouse.vY = this.mouse.y - this.mouse.prevY;
+
+            this.mouse.prevX = this.mouse.x;
+            this.mouse.prevY = this.mouse.y;
+          });
+        }
+
+        settings() {
+          let that = this;
+          this.settings = {
+            grid: this.getValue("grid") || 34, //generate how many grid
+            mouse: this.getValue("mouse") || 0.25, //mouse radius affecting the distortion
+            strength: this.getValue("strength") || 1, //higher = more parallax and distorted.
+            relaxation: this.getValue("relaxation") || 0.9, //lower = faster pixel re-sorting
+            aspectRatio: this.getValue("aspectRatio") || 1.77 //change aspectRatio according to your image size.
+          };
+        }
+
+        setupResize() {
+          window.addEventListener("resize", this.resize.bind(this));
+        }
+
+        resize() {
+          this.width = this.container.offsetWidth;
+          this.height = this.container.offsetHeight;
+          this.renderer.setSize(this.width, this.height);
+          this.camera.aspect = this.width / this.height;
+          
+          //image Aspect depends on your image, change accordingly
+          this.imageAspect = 1 / this.settings.aspectRatio;
+          
+          let a1;
+          let a2;
+          if (this.height / this.width > this.imageAspect) {
+            a1 = (this.width / this.height) * this.imageAspect;
+            a2 = 1;
+          } else {
+            a1 = 1;
+            a2 = this.height / this.width / this.imageAspect;
+          }
+
+          this.material.uniforms.resolution.value.x = this.width;
+          this.material.uniforms.resolution.value.y = this.height;
+          this.material.uniforms.resolution.value.z = a1;
+          this.material.uniforms.resolution.value.w = a2;
+
+          this.camera.updateProjectionMatrix();
+          this.regenerateGrid();
+        }
+
+        regenerateGrid() {
+          this.size = this.settings.grid;
+
+          const width = this.size;
+          const height = this.size;
+
+          const size = width * height;
+          const data = new Float32Array(3 * size);
+          const color = new THREE.Color(0xffffff);
+
+          const r = Math.floor(color.r * 255);
+          const g = Math.floor(color.g * 255);
+          const b = Math.floor(color.b * 255);
+
+          for (let i = 0; i < size; i++) {
+            let r = Math.random() * 255 - 125;
+            let r1 = Math.random() * 255 - 125;
+
+            const stride = i * 3;
+
+            data[stride] = r;
+            data[stride + 1] = r1;
+            data[stride + 2] = r;
+          }
+
+          // used the buffer to create a DataTexture
+
+          this.texture = new THREE.DataTexture(
+            data,
+            width,
+            height,
+            THREE.RGBFormat,
+            THREE.FloatType
+          );
+
+          this.texture.magFilter = this.texture.minFilter = THREE.NearestFilter;
+
+          if (this.material) {
+            this.material.uniforms.uDataTexture.value = this.texture;
+            this.material.uniforms.uDataTexture.value.needsUpdate = true;
+          }
+        }
+
+        addObjects() {
+          this.regenerateGrid();
+          let texture = new THREE.TextureLoader().load(this.img.src, function(){
+            texture.minFilter = THREE.LinearFilter;
+            texture.generateMipmaps = false;
+            var tex = texture.clone();
+            tex.needsUpdate = true;
+          });
+          this.material = new THREE.ShaderMaterial({
+            extensions: {
+              derivatives: "#extension GL_OES_standard_derivatives : enable"
+            },
+            side: THREE.DoubleSide,
+            uniforms: {
+              time: {
+                value: 0
+              },
+              resolution: {
+                value: new THREE.Vector4()
+              },
+              uTexture: {
+                value: texture
+              },
+              uDataTexture: {
+                value: this.texture
+              }
+            },
+            vertexShader: vertex,
+            fragmentShader: fragment
+          });
+          this.geometry = new THREE.PlaneGeometry(1, 1, 1, 1);
+
+          this.plane = new THREE.Mesh(this.geometry, this.material);
+          this.scene.add(this.plane);
+          
+          this.resize();
+        }
+
+        updateDataTexture() {
+          let data = this.texture.image.data;
+          for (let i = 0; i < data.length; i += 3) {
+            data[i] *= this.settings.relaxation;
+            data[i + 1] *= this.settings.relaxation;
+          }
+
+          let gridMouseX = this.size * this.mouse.x;
+          let gridMouseY = this.size * (1 - this.mouse.y);
+          let maxDist = this.size * this.settings.mouse;
+          let aspect = this.height / this.width;
+
+          for (let i = 0; i < this.size; i++) {
+            for (let j = 0; j < this.size; j++) {
+              let distance = (gridMouseX - i) ** 2 / aspect + (gridMouseY - j) ** 2;
+              let maxDistSq = maxDist ** 2;
+
+              if (distance < maxDistSq) {
+                let index = 3 * (i + this.size * j);
+
+                let power = maxDist / Math.sqrt(distance);
+                power = clamp(power, 0, 10);
+                // if(distance <this.size/32) power = 1;
+                // power = 1;
+
+                data[index] += this.settings.strength * 100 * this.mouse.vX * power;
+                data[index + 1] -=
+                  this.settings.strength * 100 * this.mouse.vY * power;
+              }
+            }
+          }
+
+          this.mouse.vX *= 0.5;
+          this.mouse.vY *= 0.5;
+          this.texture.needsUpdate = true;
+        }
+
+        render() {
+          if (!this.isPlaying) return;
+          this.time += 0.05;
+          this.updateDataTexture();
+          this.material.uniforms.time.value = this.time;
+          requestAnimationFrame(this.render.bind(this));
+          this.renderer.render(this.scene, this.camera);
+        }
+      }
+
+      document.querySelectorAll(".collections-card").forEach(wrapper => {
+        new Sketch({ dom: wrapper });
+      });
+    </script>
 
   <script type="module">
-    var vertex = `
-    varying vec2 vUv;
-    varying vec3 vPosition;
-    uniform vec2 pixels;
-    float PI = 3.141592653589793238;
-    void main() {
-      vUv = uv;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-    }`;
+    const vertex = `
+      varying vec2 vUv;
+      void main() {
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `;
 
-    var fragment = `
-    uniform float progress;
-    uniform sampler2D uDataTexture;
-    uniform sampler2D uTexture;
+    const fragment = `
+      uniform float time;
+      uniform sampler2D uDataTexture;
+      uniform sampler2D uTexture;
+      uniform vec4 resolution;
+      varying vec2 vUv;
 
+      void main() {
+        vec2 newUV = (vUv - vec2(0.5)) * resolution.zw + vec2(0.5);
+        vec4 offset = texture2D(uDataTexture, vUv);
+        vec4 color = texture2D(uTexture, newUV - 0.05 * offset.rg);
+        gl_FragColor = color;
+      }
+    `;
 
-    uniform vec4 resolution;
-    varying vec2 vUv;
-    varying vec3 vPosition;
-    float PI = 3.141592653589793238;
-    void main()	{
-      vec2 newUV = (vUv - vec2(0.5)) * resolution.zw + vec2(0.5);
-      vec4 color = texture2D(uTexture,newUV);
-      vec4 offset = texture2D(uDataTexture,vUv);
-      gl_FragColor = vec4(vUv,0.0,1.);
-      gl_FragColor = vec4(offset.r,0.,0.,1.);
-      gl_FragColor = color;
-      gl_FragColor = texture2D(uTexture,newUV - 0.01*offset.rg);
-      // gl_FragColor = offset;
-
-    }`;
-
-    function clamp(number, min, max) {
-      return Math.max(min, Math.min(number, max));
+    function clamp(num, min, max) {
+      return Math.max(min, Math.min(num, max));
     }
 
     class Sketch {
       constructor(options) {
-        this.scene = new THREE.Scene();
-
         this.container = options.dom;
-        this.img = this.container.querySelector("img");
+        this.img = this.container.querySelector('img');
         this.width = this.container.offsetWidth;
         this.height = this.container.offsetHeight;
-        this.renderer = new THREE.WebGLRenderer();
-        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        this.renderer.setSize(this.width, this.height);
-        this.renderer.setClearColor(0xeeeeee, 1);
-        this.renderer.physicallyCorrectLights = true;
-        this.renderer.outputEncoding = THREE.sRGBEncoding;
 
+        this.renderer = new THREE.WebGLRenderer({ alpha: true });
+        this.renderer.setSize(this.width, this.height);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.container.appendChild(this.renderer.domElement);
 
-        this.camera = new THREE.PerspectiveCamera(
-          70,
-          window.innerWidth / window.innerHeight,
-          0.1,
-          100
-        );
+        this.scene = new THREE.Scene();
+        this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+        this.camera.position.z = 1;
 
-        var frustumSize = 1;
-        var aspect = window.innerWidth / window.innerHeight;
-        this.camera = new THREE.OrthographicCamera(
-          frustumSize / -2,
-          frustumSize / 2,
-          frustumSize / 2,
-          frustumSize / -2,
-          -1000,
-          1000
-        );
-        this.camera.position.set(0, 0, 2);
-
-        this.time = 0;
-
-        this.mouse = {
-          x: 0,
-          y: 0,
-          prevX: 0,
-          prevY: 0,
-          vX: 0,
-          vY: 0
+        this.mouse = { x: 0.5, y: 0.5, vX: 0, vY: 0, prevX: 0.5, prevY: 0.5 };
+        this.settings = {
+          grid: 42,
+          mouse: 0.5,
+          strength: .5,
+          relaxation: 0.95,
+          aspectRatio: 1.77
         };
 
+        this.size = this.settings.grid;
+        this.time = .5;
         this.isPlaying = true;
-        this.settings();
-        this.addObjects();
+
+        this.initTexture();
+        this.initObjects();
         this.resize();
         this.render();
-        this.setupResize();
 
-        this.mouseEvents();
+        window.addEventListener('resize', () => this.resize());
+        this.hoverListener();
       }
 
-      getValue(val) {
-        return parseFloat(this.container.getAttribute("data-" + val));
+      initTexture() {
+        const length = this.size * this.size * 3;
+        const data = new Float32Array(length);
+        for (let i = 0; i < length; i += 3) {
+          data[i] = 0;
+          data[i + 1] = 0;
+          data[i + 2] = 0;
+        }
+
+        this.texture = new THREE.DataTexture(data, this.size, this.size, THREE.RGBFormat, THREE.FloatType);
+        this.texture.needsUpdate = true;
+        this.texture.magFilter = THREE.NearestFilter;
+        this.texture.minFilter = THREE.NearestFilter;
       }
 
-      mouseEvents() {
-        this.container.addEventListener("mousemove", (e) => {
-          const rect = this.container.getBoundingClientRect();
-          this.mouse.x = (e.clientX - rect.left) / rect.width;
-          this.mouse.y = (e.clientY - rect.top) / rect.height;
+      initObjects() {
+        const texture = new THREE.TextureLoader().load(this.img.src);
+        texture.minFilter = THREE.LinearFilter;
 
-          this.mouse.vX = this.mouse.x - this.mouse.prevX;
-          this.mouse.vY = this.mouse.y - this.mouse.prevY;
-
-          this.mouse.prevX = this.mouse.x;
-          this.mouse.prevY = this.mouse.y;
+        this.material = new THREE.ShaderMaterial({
+          vertexShader: vertex,
+          fragmentShader: fragment,
+          uniforms: {
+            time: { value: 0 },
+            resolution: { value: new THREE.Vector4() },
+            uTexture: { value: texture },
+            uDataTexture: { value: this.texture },
+          }
         });
-      }
 
-      settings() {
-        let that = this;
-        this.settings = {
-          grid: this.getValue("grid") || 34, //generate how many grid
-          mouse: this.getValue("mouse") || 0.25, //mouse radius affecting the distortion
-          strength: this.getValue("strength") || 1, //higher = more parallax and distorted.
-          relaxation: this.getValue("relaxation") || 0.9, //lower = faster pixel re-sorting
-          aspectRatio: this.getValue("aspectRatio") || 1.77 //change aspectRatio according to your image size.
-        };
-      }
-
-      setupResize() {
-        window.addEventListener("resize", this.resize.bind(this));
+        this.geometry = new THREE.PlaneGeometry(2, 2);
+        this.mesh = new THREE.Mesh(this.geometry, this.material);
+        this.scene.add(this.mesh);
       }
 
       resize() {
         this.width = this.container.offsetWidth;
         this.height = this.container.offsetHeight;
         this.renderer.setSize(this.width, this.height);
-        this.camera.aspect = this.width / this.height;
-        
-        //image Aspect depends on your image, change accordingly
-        this.imageAspect = 1 / this.settings.aspectRatio;
-        
-        let a1;
-        let a2;
-        if (this.height / this.width > this.imageAspect) {
-          a1 = (this.width / this.height) * this.imageAspect;
-          a2 = 1;
-        } else {
-          a1 = 1;
-          a2 = this.height / this.width / this.imageAspect;
-        }
 
-        this.material.uniforms.resolution.value.x = this.width;
-        this.material.uniforms.resolution.value.y = this.height;
-        this.material.uniforms.resolution.value.z = a1;
-        this.material.uniforms.resolution.value.w = a2;
-
-        this.camera.updateProjectionMatrix();
-        this.regenerateGrid();
+        this.material.uniforms.resolution.value.set(this.width, this.height, 1, 1);
       }
 
-      regenerateGrid() {
-        this.size = this.settings.grid;
+      hoverListener() {
+        const button = document.querySelector('.btn-contact');
+        const canvas = this.img.closest('.arm-wrapper')?.querySelector('canvas');
 
-        const width = this.size;
-        const height = this.size;
+        if (!button || !canvas) return;
 
-        const size = width * height;
-        const data = new Float32Array(3 * size);
-        const color = new THREE.Color(0xffffff);
-
-        const r = Math.floor(color.r * 255);
-        const g = Math.floor(color.g * 255);
-        const b = Math.floor(color.b * 255);
-
-        for (let i = 0; i < size; i++) {
-          let r = Math.random() * 255 - 125;
-          let r1 = Math.random() * 255 - 125;
-
-          const stride = i * 3;
-
-          data[stride] = r;
-          data[stride + 1] = r1;
-          data[stride + 2] = r;
-        }
-
-        // used the buffer to create a DataTexture
-
-        this.texture = new THREE.DataTexture(
-          data,
-          width,
-          height,
-          THREE.RGBFormat,
-          THREE.FloatType
-        );
-
-        this.texture.magFilter = this.texture.minFilter = THREE.NearestFilter;
-
-        if (this.material) {
-          this.material.uniforms.uDataTexture.value = this.texture;
-          this.material.uniforms.uDataTexture.value.needsUpdate = true;
-        }
-      }
-
-      addObjects() {
-        this.regenerateGrid();
-        let texture = new THREE.TextureLoader().load(this.img.src, function(){
-          texture.minFilter = THREE.LinearFilter;
-          texture.generateMipmaps = false;
-          var tex = texture.clone();
-          tex.needsUpdate = true;
+        button.addEventListener('mouseenter', () => {
+          canvas.style.filter = 'none'; // Remove grayscale
+          this.triggerDistortion();
         });
-        this.material = new THREE.ShaderMaterial({
-          extensions: {
-            derivatives: "#extension GL_OES_standard_derivatives : enable"
-          },
-          side: THREE.DoubleSide,
-          uniforms: {
-            time: {
-              value: 0
-            },
-            resolution: {
-              value: new THREE.Vector4()
-            },
-            uTexture: {
-              value: texture
-            },
-            uDataTexture: {
-              value: this.texture
+
+        button.addEventListener('mouseleave', () => {
+          canvas.style.filter = 'grayscale(100%)'; // Reapply grayscale
+        });
+      }
+
+      easeInQuad(t) {
+        return t * t;
+      }
+      
+      triggerDistortion() {
+        const isLeftArm = this.img.classList.contains('left-arm');
+        const isGodsArm = this.img.classList.contains('gods-arm');
+
+        const centerY = this.size / 2;
+        const maxDist = this.size / 2;
+        const data = this.texture.image.data;
+        const totalFrames = 90;
+        let frame = 0;
+
+        const easeInOutCubic = (t) => {
+          return t < 0.5
+            ? 4 * t * t * t
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        };
+
+        const animateDistortion = () => {
+          const t = frame / totalFrames;
+          const eased = easeInOutCubic(t);
+
+          const bandWidth = 10;
+          const bandX = isLeftArm
+            ? Math.floor(this.size * (1 - eased)) 
+            : Math.floor(this.size * eased);
+
+          for (let y = 0; y < this.size; y++) {
+            for (let x = 0; x < this.size; x++) {
+              const index = 3 * (x + y * this.size);
+              const dx = x - this.size / 2;
+              const dy = y - centerY;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+
+              if (x >= bandX && x <= bandX + bandWidth) {
+                const noise = (Math.random() - 0.5) * 5 * (1 - dist / maxDist);
+                const power = 0.01;
+
+                if (isLeftArm) {
+                  data[index] -= power * 15 + noise;
+                  data[index + 1] += (dy / maxDist) * power * 10 + noise;
+                }
+
+                if (isGodsArm) {
+                  data[index] += power * 15 + noise;
+                  data[index + 1] += (dy / maxDist) * power * 10 + noise;
+                }
+              }
             }
-          },
-          vertexShader: vertex,
-          fragmentShader: fragment
-        });
-        this.geometry = new THREE.PlaneGeometry(1, 1, 1, 1);
+          }
 
-        this.plane = new THREE.Mesh(this.geometry, this.material);
-        this.scene.add(this.plane);
-        
-        this.resize();
+          this.texture.needsUpdate = true;
+
+          if (frame < totalFrames) {
+            frame++;
+            requestAnimationFrame(animateDistortion);
+          }
+        };
+
+
+        animateDistortion();
       }
 
-      updateDataTexture() {
+      updateTexture() {
         let data = this.texture.image.data;
         for (let i = 0; i < data.length; i += 3) {
           data[i] *= this.settings.relaxation;
@@ -464,7 +702,7 @@
               let index = 3 * (i + this.size * j);
 
               let power = maxDist / Math.sqrt(distance);
-              power = clamp(power, 0, 10);
+              power = clamp(power, 0, 20);
               // if(distance <this.size/32) power = 1;
               // power = 1;
 
@@ -475,266 +713,24 @@
           }
         }
 
-        this.mouse.vX *= 0.5;
-        this.mouse.vY *= 0.5;
-        this.texture.needsUpdate = true;
-      }
+          this.mouse.vX *= 0.5;
+          this.mouse.vY *= 0.5;
+          this.texture.needsUpdate = true;
+        }
 
       render() {
         if (!this.isPlaying) return;
-        this.time += 0.05;
-        this.updateDataTexture();
+        this.time += 0.001;
         this.material.uniforms.time.value = this.time;
-        requestAnimationFrame(this.render.bind(this));
+        this.updateTexture();
+        requestAnimationFrame(() => this.render());
         this.renderer.render(this.scene, this.camera);
       }
     }
 
-    document.querySelectorAll(".collections-card").forEach(wrapper => {
+    document.querySelectorAll('.arm-wrapper').forEach(wrapper => {
       new Sketch({ dom: wrapper });
     });
   </script>
-
-<script type="module">
-  const vertex = `
-    varying vec2 vUv;
-    void main() {
-      vUv = uv;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `;
-
-  const fragment = `
-    uniform float time;
-    uniform sampler2D uDataTexture;
-    uniform sampler2D uTexture;
-    uniform vec4 resolution;
-    varying vec2 vUv;
-
-    void main() {
-      vec2 newUV = (vUv - vec2(0.5)) * resolution.zw + vec2(0.5);
-      vec4 offset = texture2D(uDataTexture, vUv);
-      vec4 color = texture2D(uTexture, newUV - 0.05 * offset.rg);
-      gl_FragColor = color;
-    }
-  `;
-
-  function clamp(num, min, max) {
-    return Math.max(min, Math.min(num, max));
-  }
-
-  class Sketch {
-    constructor(options) {
-      this.container = options.dom;
-      this.img = this.container.querySelector('img');
-      this.width = this.container.offsetWidth;
-      this.height = this.container.offsetHeight;
-
-      this.renderer = new THREE.WebGLRenderer({ alpha: true });
-      this.renderer.setSize(this.width, this.height);
-      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      this.container.appendChild(this.renderer.domElement);
-
-      this.scene = new THREE.Scene();
-      this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
-      this.camera.position.z = 1;
-
-      this.mouse = { x: 0.5, y: 0.5, vX: 0, vY: 0, prevX: 0.5, prevY: 0.5 };
-      this.settings = {
-        grid: 42,
-        mouse: 0.5,
-        strength: .5,
-        relaxation: 0.95,
-        aspectRatio: 1.77
-      };
-
-      this.size = this.settings.grid;
-      this.time = .5;
-      this.isPlaying = true;
-
-      this.initTexture();
-      this.initObjects();
-      this.resize();
-      this.render();
-
-      window.addEventListener('resize', () => this.resize());
-      this.hoverListener();
-    }
-
-    initTexture() {
-      const length = this.size * this.size * 3;
-      const data = new Float32Array(length);
-      for (let i = 0; i < length; i += 3) {
-        data[i] = 0;
-        data[i + 1] = 0;
-        data[i + 2] = 0;
-      }
-
-      this.texture = new THREE.DataTexture(data, this.size, this.size, THREE.RGBFormat, THREE.FloatType);
-      this.texture.needsUpdate = true;
-      this.texture.magFilter = THREE.NearestFilter;
-      this.texture.minFilter = THREE.NearestFilter;
-    }
-
-    initObjects() {
-      const texture = new THREE.TextureLoader().load(this.img.src);
-      texture.minFilter = THREE.LinearFilter;
-
-      this.material = new THREE.ShaderMaterial({
-        vertexShader: vertex,
-        fragmentShader: fragment,
-        uniforms: {
-          time: { value: 0 },
-          resolution: { value: new THREE.Vector4() },
-          uTexture: { value: texture },
-          uDataTexture: { value: this.texture },
-        }
-      });
-
-      this.geometry = new THREE.PlaneGeometry(2, 2);
-      this.mesh = new THREE.Mesh(this.geometry, this.material);
-      this.scene.add(this.mesh);
-    }
-
-    resize() {
-      this.width = this.container.offsetWidth;
-      this.height = this.container.offsetHeight;
-      this.renderer.setSize(this.width, this.height);
-
-      this.material.uniforms.resolution.value.set(this.width, this.height, 1, 1);
-    }
-
-    hoverListener() {
-      const button = document.querySelector('.btn-contact');
-      const canvas = this.img.closest('.arm-wrapper')?.querySelector('canvas');
-
-      if (!button || !canvas) return;
-
-      button.addEventListener('mouseenter', () => {
-        canvas.style.filter = 'none'; // Remove grayscale
-        this.triggerDistortion();
-      });
-
-      button.addEventListener('mouseleave', () => {
-        canvas.style.filter = 'grayscale(100%)'; // Reapply grayscale
-      });
-    }
-
-    easeInQuad(t) {
-      return t * t;
-    }
-    
-    triggerDistortion() {
-      const isLeftArm = this.img.classList.contains('left-arm');
-      const isGodsArm = this.img.classList.contains('gods-arm');
-
-      const centerY = this.size / 2;
-      const maxDist = this.size / 2;
-      const data = this.texture.image.data;
-      const totalFrames = 90;
-      let frame = 0;
-
-      const easeInOutCubic = (t) => {
-        return t < 0.5
-          ? 4 * t * t * t
-          : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      };
-
-      const animateDistortion = () => {
-        const t = frame / totalFrames;
-        const eased = easeInOutCubic(t);
-
-        const bandWidth = 10;
-        const bandX = isLeftArm
-          ? Math.floor(this.size * (1 - eased)) 
-          : Math.floor(this.size * eased);
-
-        for (let y = 0; y < this.size; y++) {
-          for (let x = 0; x < this.size; x++) {
-            const index = 3 * (x + y * this.size);
-            const dx = x - this.size / 2;
-            const dy = y - centerY;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (x >= bandX && x <= bandX + bandWidth) {
-              const noise = (Math.random() - 0.5) * 5 * (1 - dist / maxDist);
-              const power = 0.01;
-
-              if (isLeftArm) {
-                data[index] -= power * 15 + noise;
-                data[index + 1] += (dy / maxDist) * power * 10 + noise;
-              }
-
-              if (isGodsArm) {
-                data[index] += power * 15 + noise;
-                data[index + 1] += (dy / maxDist) * power * 10 + noise;
-              }
-            }
-          }
-        }
-
-        this.texture.needsUpdate = true;
-
-        if (frame < totalFrames) {
-          frame++;
-          requestAnimationFrame(animateDistortion);
-        }
-      };
-
-
-      animateDistortion();
-    }
-
-    updateTexture() {
-      let data = this.texture.image.data;
-      for (let i = 0; i < data.length; i += 3) {
-        data[i] *= this.settings.relaxation;
-        data[i + 1] *= this.settings.relaxation;
-      }
-
-      let gridMouseX = this.size * this.mouse.x;
-      let gridMouseY = this.size * (1 - this.mouse.y);
-      let maxDist = this.size * this.settings.mouse;
-      let aspect = this.height / this.width;
-
-      for (let i = 0; i < this.size; i++) {
-        for (let j = 0; j < this.size; j++) {
-          let distance = (gridMouseX - i) ** 2 / aspect + (gridMouseY - j) ** 2;
-          let maxDistSq = maxDist ** 2;
-
-          if (distance < maxDistSq) {
-            let index = 3 * (i + this.size * j);
-
-            let power = maxDist / Math.sqrt(distance);
-            power = clamp(power, 0, 20);
-            // if(distance <this.size/32) power = 1;
-            // power = 1;
-
-            data[index] += this.settings.strength * 100 * this.mouse.vX * power;
-            data[index + 1] -=
-              this.settings.strength * 100 * this.mouse.vY * power;
-          }
-        }
-      }
-
-        this.mouse.vX *= 0.5;
-        this.mouse.vY *= 0.5;
-        this.texture.needsUpdate = true;
-      }
-
-    render() {
-      if (!this.isPlaying) return;
-      this.time += 0.001;
-      this.material.uniforms.time.value = this.time;
-      this.updateTexture();
-      requestAnimationFrame(() => this.render());
-      this.renderer.render(this.scene, this.camera);
-    }
-  }
-
-  document.querySelectorAll('.arm-wrapper').forEach(wrapper => {
-    new Sketch({ dom: wrapper });
-  });
-</script>
 </body>
 </html>

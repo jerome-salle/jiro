@@ -1,4 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
+  let percent = 0;
+  const interval = setInterval(() => {
+    percent++;
+    document.querySelector("#percent").innerText = percent + "%";
+    document.querySelector(".progress-fill").style.width = percent + "%";
+
+    if (percent >= 100) {
+      clearInterval(interval);
+
+      const preloader = document.getElementById("preloader");
+      preloader.style.opacity = 0;
+
+      // Wait for the fade-out to complete before hiding the element
+      setTimeout(() => {
+        preloader.style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      }, 600);
+    }
+  }, 30);
+
   Fancybox.bind('[data-fancybox="cert"]', {
     dragToClose: false, 
   });
@@ -27,16 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   gsap.registerPlugin(ScrollTrigger, SplitText);
-
-  // Back to top button
-  // const backToTop = document.getElementById('topButton');
-  // window.addEventListener('scroll', () => {
-  //   if (window.scrollY > 150) {
-  //     backToTop.style.transform = "translateY(0)";
-  //   } else {
-  //     backToTop.style.transform = "translateY(400px)";
-  //   }
-  // });
 
   const elements = document.querySelectorAll(".js-fade-up");
   elements.forEach((element) => {
@@ -328,4 +338,26 @@ document.addEventListener("DOMContentLoaded", function () {
       closeMenu();
     }
   });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const interBubble = document.querySelector('.interactive');
+  let curX = 0;
+  let curY = 0;
+  let tgX = 0;
+  let tgY = 0;
+
+  function move() {
+    curX += (tgX - curX) / 20;
+    curY += (tgY - curY) / 20;
+    interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+    requestAnimationFrame(move);
+  }
+
+  window.addEventListener('mousemove', (event) => {
+    tgX = event.clientX;
+    tgY = event.clientY;
+  });
+
+  move();
 });
