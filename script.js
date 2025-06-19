@@ -313,6 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
     animation.play();
     sideMenu.style.opacity = "0";
     sideMenu.style.visibility = "hidden"
+    sideMenu.style.pointerEvents = "none";
     menuOpen = false;
   }
 
@@ -325,6 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
       animation.play();
       sideMenu.style.opacity = "1";
       sideMenu.style.visibility = "visible"
+      sideMenu.style.pointerEvents = "visible";
       menuOpen = true;
     }
   });
